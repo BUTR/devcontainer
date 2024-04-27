@@ -46,7 +46,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         builder: ${{ steps.buildx.outputs.name }}
-        context: ./
+        context: .
         file: ./image-base/Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
@@ -56,11 +56,4 @@ jobs:
         labels: |
           org.opencontainers.image.source=${{ github.event.repository.html_url }}
         annotations: |
-          org.opencontainers.image.description=${{ github.event.repository.html_url }}
-          org.opencontainers.image.url=${{ github.event.repository.html_url }}
-          org.opencontainers.image.documentation=${{ github.event.repository.html_url }}/blob/master/README.md
-          org.opencontainers.image.vendor=BUTR
-          org.opencontainers.image.licenses=MIT
-          org.opencontainers.image.title=Dev Container
-          org.opencontainers.image.version=latest
-          org.opencontainers.image.revision=${{ github.sha }}
+          index:org.opencontainers.image.source=${{ github.event.repository.html_url }}
