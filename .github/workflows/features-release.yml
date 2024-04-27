@@ -14,7 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: "Publish Features"
+      - name: Login to Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: BUTR
+          password: ${{ secrets.TOKEN_GPR }}
+
+      - name: Publish Features
         uses: devcontainers/action@v1
         with:
           publish-features: "true"
