@@ -50,7 +50,8 @@ jobs:
         file: ./image-base/Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ghcr.io/butr/devcontainer:latest
+        tags: |
+          latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
         labels: |
