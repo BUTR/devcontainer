@@ -1,16 +1,16 @@
 name: Dev Container Build and Push Image
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - '.image-base/**/*'
   workflow_dispatch:
 
 jobs:
   build-and-publish-docker:
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      packages: write
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
