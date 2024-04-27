@@ -55,4 +55,4 @@ jobs:
         cache-to: type=local,dest=/tmp/.buildx-cache
         #labels: |
         #  org.opencontainers.image.source=${{ github.event.repository.html_url }}
-        outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
+        outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=${{ github.event.repository.html_url }}
