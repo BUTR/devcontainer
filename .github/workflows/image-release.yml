@@ -17,11 +17,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Prepare
-      id: prep
-      run: |
-        echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
       with:
@@ -58,10 +53,6 @@ jobs:
         tags: ghcr.io/butr/devcontainer:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
-        labels: |
-          org.opencontainers.image.source=${{ github.event.repository.html_url }}
-          org.opencontainers.image.created=${{ steps.prep.outputs.created }}
-          org.opencontainers.image.revision=${{ github.sha }}
-
-    - name: Image digest
-      run: echo ${{ steps.docker_build.outputs.digest }}
+        #labels: |
+        #  org.opencontainers.image.source=${{ github.event.repository.html_url }}
+        outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
