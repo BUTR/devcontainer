@@ -4,6 +4,6 @@ export DEBIAN_FRONTEND=noninteractive
 echo "(*) Installing dotnet workload"
 
 dotnet workload update
-dotnet workload restore ${WORKLOAD}
+dotnet workload install ${WORKLOAD}
 
 echo "Done!"
