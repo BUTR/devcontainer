@@ -53,6 +53,14 @@ jobs:
         tags: ghcr.io/butr/devcontainer:latest
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache
-        #labels: |
-        #  org.opencontainers.image.source=${{ github.event.repository.html_url }}
-        outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=${{ github.event.repository.html_url }}
+        labels: |
+          org.opencontainers.image.source=${{ github.event.repository.html_url }}
+        annotations: |
+          org.opencontainers.image.description=${{ github.event.repository.html_url }}
+          org.opencontainers.image.url=${{ github.event.repository.html_url }}
+          org.opencontainers.image.documentation=${{ github.event.repository.html_url }}/blob/master/README.md
+          org.opencontainers.image.vendor=BUTR
+          org.opencontainers.image.licenses=MIT
+          org.opencontainers.image.title=Dev Container
+          org.opencontainers.image.version=latest
+          org.opencontainers.image.revision=${{ github.sha }}
