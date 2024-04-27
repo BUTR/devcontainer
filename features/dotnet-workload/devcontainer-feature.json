@@ -1,0 +1,17 @@
+{
+    "id": "dotnet-workload",
+    "version": "1.0.0",
+    "name": "dotnet workload",
+    "documentationURL": "",
+    "description": "dotnet workload",
+    "options": {
+        "workload": {
+            "type": "string",
+            "default": "",
+            "description": "Choose your favorite color."
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/dotnet"
+    ]
+}
